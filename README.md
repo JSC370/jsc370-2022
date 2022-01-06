@@ -12,6 +12,23 @@
 * Course Forum: Piazza
 * [Course syllabus](syllabus.pdf)
 
+### Weekly Course Schedule 
+
+|   | Topics/Weekly Activities  | Due Dates  |
+|---|---|---|
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
 
 ### Website Adapted based on:
 
