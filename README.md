@@ -16,7 +16,7 @@
 
 |   | Topics/Weekly Activities  | Due Dates  |
 |---|---|---|
-|   |   |   |
+| **Week 1** <br> January 11 (lecture) <br> January 13 (lab)  |  Introduction to Data Science tools: R, Python, markdown |   |
 |   |   |   |
 |   |   |   |
 |   |   |   |
