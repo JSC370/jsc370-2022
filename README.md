@@ -30,6 +30,6 @@
 |  **Week 12** <br> March 29 (guest speaker/lecture) <br> March 31 (lab) | TBD <br> Interactive visualization and effective data communication II  | **HW5 Due**  |
 |  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | Radu Craiu (U of T) <br> Final Presentations  |   |
 
-### Website Adapted based on:
+### Webiste reference:
 
 [1] https://github.com/JSC370/jsc370.github.io
