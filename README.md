@@ -9,7 +9,7 @@
 * Location: ES4000 and online
 * Time: Tuesday and Thursdays, 3-5pm
 * Office hours: By Appointment
-* Course Forum: Piazza
+* Course Forum: [Piazza](https://piazza.com/utoronto.ca/winter2022/jsc370/home)
 * [Course syllabus](JSC370-Syllabus-2022.pdf)
 
 ### Weekly Course Schedule 
