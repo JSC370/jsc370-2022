@@ -1,4 +1,4 @@
-## JSC370 and JSC470: Data Science II and III (Winter 2022), University of Toronto
+## JSC370: Data Science II (Winter 2022), University of Toronto
 
 <img src="assets/datascience.png" width="400">
 
