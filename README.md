@@ -10,7 +10,7 @@
 * Time: Tuesday and Thursdays, 3-5pm
 * Office hours: By Appointment
 * Course Forum: Piazza
-* [Course syllabus](syllabus.pdf)
+* [Course syllabus](JSC370-Syllabus-2022.pdf)
 
 ### Weekly Course Schedule 
 
