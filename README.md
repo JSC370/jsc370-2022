@@ -12,6 +12,7 @@ https://utoronto.zoom.us/j/88388656730)
 * Office hours: By Appointment
 * Course Forum: [Piazza](https://piazza.com/utoronto.ca/winter2022/jsc370/home)
 * [Course syllabus](JSC370-Syllabus-2022.pdf)
+* [Lab materials](https://github.com/JSC370/jsc370-2022/tree/main/labs)
 
 ### Weekly Course Schedule 
 
