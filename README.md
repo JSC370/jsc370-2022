@@ -33,6 +33,7 @@ https://utoronto.zoom.us/j/88388656730)
 |  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | Radu Craiu (U of T) <br> Final Presentations  |  **HW5, Lab 13, Reflection, Final Project** |
 
 ### Grading Breakdown
+
 | Task  | \% of Grade |
 |---|---|
 |Labs|10|
