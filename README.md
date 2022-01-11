@@ -24,7 +24,7 @@ https://utoronto.zoom.us/j/88388656730)
 |  **Week 5** <br> February 9 (guest speaker/lecture) <br> February 10 (lab)  | Graduate student panel (U of T) <br> Data cleaning and wrangling  |  |
 |  **Week 6** <br> February 14/15 (guest speaker/lecture) <br> February 17 (lab) | Paul Varghese (Verily)<br> Regular Expressions, Big Data, Data scraping, using APIs  |  **HW2 Due**  |
 |  **Week 7** <br> February 22/24  | Reading Week  |   |
-|  **Week 8** <br> March 1 (guest speaker/lecture) <br> March 3 (lab) | Lisa Strug (U of T) <br> Text mining  |  ** Midterm Due |
+|  **Week 8** <br> March 1 (guest speaker/lecture) <br> March 3 (lab) | Lisa Strug (U of T) <br> Text mining  |  ** Midterm Due** |
 |  **Week 9** <br> March 7/8 (guest speaker/lecture) <br> March 10 (lab) | Alistair Johnson (Sick Kids) <br> High performance computing, cloud computing  | **HW3 Due**   |
 |  **Week 10** <br> March 15 (guest speaker/lecture) <br> March 17 (lab) | Paul Varghese (Verily) <br> Machine Learning   |  |
 |  **Week 11** <br> March 22 (guest speaker/lecture) <br> March 24 (lab) | TBD <br> Interactive visualization and effective data communication I  |  **HW4 Due**  |
