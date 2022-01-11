@@ -15,7 +15,7 @@ https://utoronto.zoom.us/j/88388656730)
 
 ### Weekly Course Schedule 
 
-|   | Topics/Weekly Activities  | Due Dates  |
+|   | Topics/Weekly Activities  | [Due Dates](https://q.utoronto.ca/courses/256479/assignments)  |
 |---|---|---|
 |  **Week 1** <br> January 11 [lecture](https://github.com/JSC370/jsc370-2022/blob/main/01-Introduction.pdf) <br> January 13 (lab)  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
 |  **Week 2** <br> January 17/18 (guest speaker/lecture)<br> January 20 (lab) |  Aaron Sonabend (Google)<br> Version Control & Reproducible Research, Git |  **Lab 2, Reflection**|
