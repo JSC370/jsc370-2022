@@ -4,7 +4,7 @@
 
 ### Where and When
 * Instructor: [Meredith Franklin](https://meredithfranklin.github.io)
-* Teaching Assistant: [Caitlin Harrigan](https://www.caitharrigan.ca) and [Zhibo Zhang](https://www.linkedin.com/in/zhibo-darren-zhang/)
+* Teaching Assistant: Caitlin Harrigan and [Zhibo Zhang](https://www.linkedin.com/in/zhibo-darren-zhang/)
 * Email: <meredith.franklin@utoronto.ca>, please put "JSC370" in the subject line.
 * Location: ES4000 and [zoom](
 https://utoronto.zoom.us/j/88388656730)
