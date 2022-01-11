@@ -19,8 +19,8 @@ https://utoronto.zoom.us/j/88388656730)
 |---|---|---|
 |  **Week 1** <br> January 11 [lecture](https://github.com/JSC370/jsc370-2022/blob/main/01-Introduction.pdf) <br> January 13 (lab)  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
 |  **Week 2** <br> January 17/18 (guest speaker/lecture)<br> January 20 (lab) |  [Aaron Sonabend](https://www.linkedin.com/in/aaron-sonabend-6199b42b/) (Google)<br> Version Control & Reproducible Research, Git |  **Lab 2, Reflection**|
-|  **Week 3** <br> January 25 (guest speaker/lecture) <br> January 27 (lab) | Stephanie Nickels (Verily) <br> Exploratory Data Analysis  |**Lab3, Reflection**|
-|  **Week 4** <br> January 31/February 1 (guest speaker/lecture) <br> February 3 (lab) |  Kathy Evans (NBA) <br> Data visualization |   **HW1, Lab4, Reflection**   |
+|  **Week 3** <br> January 25 (guest speaker/lecture) <br> January 27 (lab) | Stefanie Nickels (Verily) <br> Exploratory Data Analysis  |**Lab3, Reflection**|
+|  **Week 4** <br> January 31/February 1 (guest speaker/lecture) <br> February 3 (lab) |  [Kathy Evans](https://www.linkedin.com/in/katherine-evans-060a9bb/) (NBA) <br> Data visualization |   **HW1, Lab4, Reflection**   |
 |  **Week 5** <br> February 9 (guest speaker/lecture) <br> February 10 (lab)  | Graduate student panel (U of T) <br> Data cleaning and wrangling  | **Lab5, Reflection** |
 |  **Week 6** <br> February 14/15 (guest speaker/lecture) <br> February 17 (lab) | Paul Varghese (Verily)<br> Regular Expressions, Big Data, Data scraping, using APIs  |  **HW2, Lab6, Reflection**  |
 |  **Week 7** <br> February 22/24  | Reading Week  |   |
