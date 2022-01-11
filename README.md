@@ -17,7 +17,7 @@ https://utoronto.zoom.us/j/88388656730)
 
 |   | Topics/Weekly Activities  | Due Dates  |
 |---|---|---|
-|  **Week 1** <br> January 11 [lecture]((https://github.com/JSC370/jsc370-2022/blob/main/01-Introduction.pdf)) <br> January 13 (lab)  |  Introduction to Data Science tools: R, markdown |   |
+|  **Week 1** <br> January 11 ([lecture])(https://github.com/JSC370/jsc370-2022/blob/main/01-Introduction.pdf) <br> January 13 (lab)  |  Introduction to Data Science tools: R, markdown |   |
 |  **Week 2** <br> January 17/18 (guest speaker/lecture)<br> January 20 (lab) |  Aaron Sonabend (Google)<br> Version Control & Reproducible Research, Git |   |
 |  **Week 3** <br> January 25 (guest speaker/lecture) <br> January 27 (lab) | Stephanie Nickels (Verily) <br> Exploratory Data Analysis  | **HW1 Due**  |
 |  **Week 4** <br> January 31/February 1 (guest speaker/lecture) <br> February 3 (lab) |  Kathy Evans (NBA) <br> Data visualization |   |
