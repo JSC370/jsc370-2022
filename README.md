@@ -34,7 +34,7 @@ https://utoronto.zoom.us/j/88388656730)
 
 ### Grading Breakdown
 
-| Task  | \% of Grade |
+| Task  | % of Grade |
 |---|---|
 |Labs|10|
 |Guest speaker reflections|5|
