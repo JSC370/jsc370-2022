@@ -105,6 +105,7 @@ to get data.
 
 ### Other data
 
+- Toronto [open data](https://open.toronto.ca/)
 - Los Angeles [city data](https://data.lacity.org/)
 - Los Angeles [crime data](http://www.lapdonline.org/crime_mapping_and_compstat)
 - FiveThirtyEight [open data](https://data.fivethirtyeight.com/)
