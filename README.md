@@ -31,10 +31,21 @@ https://utoronto.zoom.us/j/88388656730)
 |  **Week 12** <br> March 29 (guest speaker/lecture) <br> March 31 (lab) | TBD <br> Interactive visualization and effective data communication II  | **Lab12, Reflection**  |
 |  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | Radu Craiu (U of T) <br> Final Presentations  |  **HW5, Lab 13, Reflection** |
 
+### Grading Breakdown
+| Task  | \% of Grade |
+|---|---|
+|Labs|10|
+|Guest speaker reflections|5|
+|Homework (5)|50|
+|Midterm report|10|
+|Final project|25|
+
+
 ### Website reference:
 
 [1] https://github.com/JSC370/jsc370.github.io
 
+# Resources
 
 ## Markdown
 
