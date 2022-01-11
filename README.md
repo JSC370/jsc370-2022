@@ -30,7 +30,7 @@ https://utoronto.zoom.us/j/88388656730)
 |  **Week 10** <br> March 15 (guest speaker/lecture) <br> March 17 (lab) | Paul Varghese (Verily) <br> Machine Learning   | **Lab10, Reflection** |
 |  **Week 11** <br> March 22 (guest speaker/lecture) <br> March 24 (lab) | TBD <br> Interactive visualization and effective data communication I  |  **HW4. Lab10, Reflection**  |
 |  **Week 12** <br> March 29 (guest speaker/lecture) <br> March 31 (lab) | TBD <br> Interactive visualization and effective data communication II  | **Lab12, Reflection**  |
-|  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | Radu Craiu (U of T) <br> Final Presentations  |  **HW5, Lab 13, Reflection** |
+|  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | Radu Craiu (U of T) <br> Final Presentations  |  **HW5, Lab 13, Reflection, Final Project** |
 
 ### Grading Breakdown
 | Task  | \% of Grade |
