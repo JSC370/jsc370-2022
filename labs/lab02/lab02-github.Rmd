@@ -12,10 +12,6 @@ In this lab, you are expected to learn/put in practice the following skills:
 - Git workflow clone/commit/push
 - Using pull requests (PR)
 
-The last bit of the lab will deal with GitHub Classrooms. While this is not a
-fundamental tool for academia/industry, we will be using this tool throughout
-the course, meaning that your grade will depend on it :).
-
 # Updating a single repo
 
 One of the most common tasks that people uses git for is for collaborating. While
@@ -30,13 +26,17 @@ the changes without conflicts.
 
 We will be working with the repository https://github.com/JSC370/whoami
 
-## Step 1: For the project in your repo
+## Step 1: Fork the project in your repo
 
 Not a term/command actually available in Git, forking is a feature available in
 Github (as in other services) that allows users to create copies of other people's
 projects to propose changes (i.e. make **pull requests**, i.e. "I have this
 great update to your project! Would you like to add it by *pulling it* into your
-repo?").
+repo?"). 
+
+Importantly, forking preserves the contribution history of everyone who came before you. It's proper etiquette (and important for academic/intellectual integrity) to not just upload a copy of code as if it were your own![^chaside]
+
+[^chaside]: In a similar vein: it's a good idea to put your name/email/copyright in the header or comments of code you publish.
 
 To start you just need to use the Fork button available on the project you would
 like to contribute to[^githubmanualfork]:
@@ -97,7 +97,7 @@ a [Markdown](https://en.wikipedia.org/wiki/Markdown) file, contains, or at least
 will contain, your and your team members biographies. Here is what you need to
 do:
 
-1. Find the line with your name/student id number.
+1. Find the line with your name.
 
 2. In that single line (i.e. not spanning multiple lines), write something about
 yourself, e.g. "I am from XYZ, I love doing ABC, ...".
@@ -155,4 +155,9 @@ For more information checkout [Creating a pull request from a fork
 ](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
 on GitHub.
 
+# Deliverables
 
+* Submit a pull request to https://github.com/JSC370/whoami
+* On quercus: a file containing the commit id of your change (you can find this using `git log`)
+
+![](commit_id.png)
