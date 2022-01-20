@@ -16,7 +16,7 @@ https://utoronto.zoom.us/j/88388656730)
 
 ### Weekly Course Schedule
 
-|   | Topics/Weekly Activities  | [Due Dates](https://q.utoronto.ca/courses/256479/assignments)  |
+|   | Topics/Weekly Activities  | [Due Dates](https://q.utoronto.ca/courses/256479/assignments) *by 11:59pm Thursdays  |
 |---|---|---|
 |  **Week 1** <br> January 11 [lecture](https://github.com/JSC370/jsc370-2022/blob/main/01-Introduction.pdf) <br> January 13 [lab](https://jsc370.github.io/jsc370-2022/labs/lab01/lab01-hello-R.html)  |  Introduction to Data Science tools: R, markdown |  **Lab 1** |
 |  **Week 2** <br> January 17/18 (guest speaker/[lecture](https://github.com/JSC370/jsc370-2022/blob/main/02%20-%20VersionControl-git.pdf)<br> January 20 [lab](https://jsc370.github.io/jsc370-2022/labs/lab02/lab02-github.html) |  [Aaron Sonabend](https://www.linkedin.com/in/aaron-sonabend-6199b42b/) (Google) 1/17 @1pm zoom <br> Version Control & Reproducible Research, Git |  **Lab 2, Reflection**|
