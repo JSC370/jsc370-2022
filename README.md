@@ -119,12 +119,15 @@ to get data.
 ### Other data
 
 - Toronto [open data](https://open.toronto.ca/)
+- British Columbia [open data](https://catalogue.data.gov.bc.ca/)
+- Ontario [Data Catalogue](https://data.ontario.ca/)
 - Los Angeles [city data](https://data.lacity.org/)
 - Los Angeles [crime data](http://www.lapdonline.org/crime_mapping_and_compstat)
 - FiveThirtyEight [open data](https://data.fivethirtyeight.com/)
 - World Bank [open data](https://data.worldbank.org/)
 - US Open Data Initiative [DATA.GOV](https://www.data.gov/)
-- Census Data [National Historical Geographic Information System (NHGIS)](https://www.nhgis.org/)
+- US Census Data [National Historical Geographic Information System (NHGIS)](https://www.nhgis.org/)
+- Canada [Census Data](https://www12.statcan.gc.ca/census-recensement/index-eng.cfm)
 - Housing data [Zillow](https://www.zillow.com/howto/api/APIOverview.htm)
 
 ### Social Networks
