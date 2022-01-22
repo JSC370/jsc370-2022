@@ -160,3 +160,6 @@ With the date-time variable we can plot the time series of temperature and wind 
 Summarize any trends that you see in these time series plots.
 
 
+# Deliverables
+
+Submit your completed lab to quercus as a html or pdf document. Fill in questions in steps 4,5,6,7
