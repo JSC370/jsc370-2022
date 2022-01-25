@@ -124,6 +124,7 @@ to get data.
 - Los Angeles [city data](https://data.lacity.org/)
 - Los Angeles [crime data](http://www.lapdonline.org/crime_mapping_and_compstat)
 - Google [Earth Engine](https://developers.google.com/earth-engine/datasets/)
+- Google [Dataset Search](https://datasetsearch.research.google.com/)
 - FiveThirtyEight [open data](https://data.fivethirtyeight.com/)
 - World Bank [open data](https://data.worldbank.org/)
 - US Open Data Initiative [DATA.GOV](https://www.data.gov/)
