@@ -27,9 +27,9 @@ https://utoronto.zoom.us/j/88388656730)
 |  **Week 7** <br> February 22/24  | Reading Week  |   |
 |  **Week 8** <br> March 1 (guest speaker/lecture) <br> March 3 (lab) | [Lisa Strug](https://www.dlsph.utoronto.ca/faculty-profile/strug-lisa-joanna/)(U of T) <br> Text mining  |  **[Midterm](), Lab8, Reflection** |
 |  **Week 9** <br> March 7/8 (guest speaker/lecture) <br> March 10 (lab) | [Alistair Johnson](https://alistairewj.github.io/) (Sick Kids) <br> High performance computing, cloud computing  | **HW3, Lab9, Reflection**   |
-|  **Week 10** <br> March 15 (guest speaker/lecture) <br> March 17 (lab) | TBD <br> ML (elastic net, xgboost)   | **Lab10, Reflection** |
+|  **Week 10** <br> March 15 (guest speaker/lecture) <br> March 17 (lab) | Ellen Stephenson (U of T)  <br> ML (elastic net, xgboost)   | **Lab10, Reflection** |
 |  **Week 11** <br> March 22 (guest speaker/lecture) <br> March 24 (lab) | [Amy Braverman](https://en.wikipedia.org/wiki/Amy_Braverman)(NASA) <br> Interactive visualization and effective data communication I  |  **HW4. Lab10, Reflection**  |
-|  **Week 12** <br> March 29 (guest speaker/lecture) <br> March 31 (lab) | TBD <br> Interactive visualization and effective data communication II  | **Lab12, Reflection**  |
+|  **Week 12** <br> March 29 (guest speaker/lecture) <br> March 31 (lab) | Sofia Ruiz (National University of Rosario) and Yunyi Shen (U Wisconsin-Madison)  <br> Interactive visualization and effective data communication II  | **Lab12, Reflection**  |
 |  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | [Radu Craiu](https://utstat.toronto.edu/craiu/) (U of T) <br> Final Presentations  |  **HW5, Lab 13, Reflection, Final Project** |
 
 ### Grading Breakdown
@@ -123,12 +123,14 @@ to get data.
 - Ontario [Data Catalogue](https://data.ontario.ca/)
 - Los Angeles [city data](https://data.lacity.org/)
 - Los Angeles [crime data](http://www.lapdonline.org/crime_mapping_and_compstat)
+- Google [Earth Engine](https://developers.google.com/earth-engine/datasets/)
+- Google [Dataset Search](https://datasetsearch.research.google.com/)
 - FiveThirtyEight [open data](https://data.fivethirtyeight.com/)
 - World Bank [open data](https://data.worldbank.org/)
 - US Open Data Initiative [DATA.GOV](https://www.data.gov/)
 - US Census Data [National Historical Geographic Information System (NHGIS)](https://www.nhgis.org/)
 - Canada [Census Data](https://www12.statcan.gc.ca/census-recensement/index-eng.cfm)
-- Housing data [Zillow](https://www.zillow.com/howto/api/APIOverview.htm)
+
 
 ### Social Networks
 
@@ -136,5 +138,6 @@ to get data.
 - GitHub [Developers API](https://docs.github.com/en/rest)
 - Instagram [Developers API](https://developers.facebook.com/docs/instagram-api/)
 - LinkedIn [Developers API](https://www.linkedin.com/developers/)
+- Zillow [Developers API](https://www.zillow.com/howto/api/APIOverview.htm)
 
 
