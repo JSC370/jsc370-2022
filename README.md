@@ -130,7 +130,7 @@ to get data.
 - US Open Data Initiative [DATA.GOV](https://www.data.gov/)
 - US Census Data [National Historical Geographic Information System (NHGIS)](https://www.nhgis.org/)
 - Canada [Census Data](https://www12.statcan.gc.ca/census-recensement/index-eng.cfm)
-- Housing data [Zillow](https://www.zillow.com/howto/api/APIOverview.htm)
+
 
 ### Social Networks
 
@@ -138,5 +138,6 @@ to get data.
 - GitHub [Developers API](https://docs.github.com/en/rest)
 - Instagram [Developers API](https://developers.facebook.com/docs/instagram-api/)
 - LinkedIn [Developers API](https://www.linkedin.com/developers/)
+- Zillow [Developers API](https://www.zillow.com/howto/api/APIOverview.htm)
 
 
