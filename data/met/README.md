@@ -14,17 +14,4 @@ Directly from the NOAA's Website
 
 This dataset is a subset of all that data, in particular, US data only.
 
-    © 2022 GitHub, Inc.
-
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
 
