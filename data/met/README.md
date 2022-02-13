@@ -1,5 +1,3 @@
-
-
 ---
 name: [Metereological data from the Integrated Surface Dataset (ISD)]
 short-desc: [Sample of the Integrated Surface Data]
