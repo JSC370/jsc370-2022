@@ -9,8 +9,7 @@ format: [csv]
 
 The data set contains a collection of transcribed medical transcription
 sample reports and examples which were scraped from
-[mtsamples.com](https://www.mtsamples.com/). The data set is rectangular
-with 4999 rows and 6 columns; “X”, “description”, “medical\_specialty”,
+[mtsamples.com](https://www.mtsamples.com/). The data set has 4999 rows and 6 columns; “X”, “description”, “medical\_specialty”,
 “sample\_name”, “transcription” and “keywords”.
 
   - X
