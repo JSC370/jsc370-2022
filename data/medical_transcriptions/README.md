@@ -7,10 +7,8 @@ keywords: [textmining, medical reports]
 format: [csv]
 ---
 
-The data set contains a collection of transcribed medical transcription
-sample reports and examples which were scraped from
-[mtsamples.com](https://www.mtsamples.com/). The data set is rectangular
-with 4999 rows and 6 columns; “X”, “description”, “medical\_specialty”,
+The data set contains a collection of transcribed medical reports and examples that were scraped from
+[mtsamples.com](https://www.mtsamples.com/). The data set has 4999 rows and 6 columns; “X”, “description”, “medical\_specialty”,
 “sample\_name”, “transcription” and “keywords”.
 
   - X
@@ -19,10 +17,9 @@ This this column is an ID column giving each row its own number.
 
   - description
 
-The \`description collumn contains a short description of the report
+The \`description column contains a short description of the report
 written out in words. It is not organized text and will as such not have
-the same amount of detail across the observations. 6 examplesm can be
-seen below
+the same amount of detail across the observations. Shown below are 6 examples:
 
     ## [1] " A 23-year-old white female presents with complaint of allergies."                                                                                                                                                                    
     ## [2] " Consult for laparoscopic gastric bypass."                                                                                                                                                                                            
@@ -34,7 +31,7 @@ seen below
   - medical\_specialty
 
 This is a character vector denoting the type and specialty of the field
-in which the transcription took place. The following 40 specialties
+in which the transcription took place. The following 40 specialties are
 represented:
 
 | medical\_specialty            |    n |
@@ -82,8 +79,7 @@ represented:
 
   - sample\_name
 
-Each transcript is given a very short name descripting the transcript. 6
-examples can be seen below.
+Each transcript is given a very short name descripting the transcript. Shown below are 6 examples:
 
     ## [1] " Allergic Rhinitis "                      
     ## [2] " Laparoscopic Gastric Bypass Consult - 2 "
@@ -100,7 +96,7 @@ any number of paragraphs of text.
   - keywords
 
 Each transcript contains multiple keywords or tags seperated by commas.
-6 examples can be seen below.
+Shown below are 6 examples:
 
     ## [1] "allergy / immunology, allergic rhinitis, allergies, asthma, nasal sprays, rhinitis, nasal, erythematous, allegra, sprays, allergic,"                                                                                                                                                                                                    
     ## [2] "bariatrics, laparoscopic gastric bypass, weight loss programs, gastric bypass, atkin's diet, weight watcher's, body weight, laparoscopic gastric, weight loss, pounds, months, weight, laparoscopic, band, loss, diets, overweight, lost"                                                                                               
