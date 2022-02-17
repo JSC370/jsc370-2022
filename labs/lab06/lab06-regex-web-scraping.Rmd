@@ -34,18 +34,18 @@ by PubMed in the following web address:
 
 Complete the lines of code:
 
-```{r counter-pubmed, eval=FALSE}
+```{r counter-pubmed, eval=T}
 # Downloading the website
-website <- xml2::read_html("[URL]")
+website <- xml2::read_html("https://pubmed.ncbi.nlm.nih.gov/?term=sars-cov-2")
 
 # Finding the counts
-counts <- xml2::xml_find_first(website, "[XPath]")
+counts <- xml2::xml_find_first(website, "/html/body/main/div[9]/div[2]/div[2]/div[1]/div[1]/span")
 
 # Turning it into text
 counts <- as.character(counts)
 
 # Extracting the data using regex
-stringr::str_extract(counts, "[REGEX FOR NUMBERS WITH COMMAS/DOTS]")
+stringr::str_extract(counts, "[0-9,]+")
 ```
 
 Don't forget to commit your work!
@@ -66,11 +66,16 @@ Use the function `httr::GET()` to make the following query:
     -   term: covid19 canada
     -   retmax: 1000
 
-```{r papers-covid-canada, eval=FALSE}
+```{r papers-covid-canada, eval = T}
 library(httr)
+library(stringr)
 query_ids <- GET(
-  url   = "BASELINE URL",
-  query = list("QUERY PARAMETERS")
+  url   = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+  query = list(
+    db= 'pubmed',
+    term = 'covid19 canada',
+    retmax = 1000
+  )
 )
 
 # Extracting the content of the response of GET
@@ -91,15 +96,17 @@ The Ids are wrapped around text in the following way:
 `<Id>... id number ...</Id>`. we can use a regular expression that
 extract that information. Fill out the following lines of code:
 
-```{r get-ids, eval = FALSE}
+```{r get-ids, eval = T}
 # Turn the result into a character vector
 ids <- as.character(ids)
 
 # Find all the ids 
-ids <- stringr::str_extract_all(ids, "PATTERN")[[1]]
+ids <- unlist(stringr::str_extract_all(ids, "<Id>[0-9]+</Id>"))
 
 # Remove all the leading and trailing <Id> </Id>. Make use of "|"
-ids <- stringr::str_remove_all(ids, "PATTERN")
+ids <- stringr::str_remove_all(ids, "<Id>|</Id>")
+
+ids <- head(ids, 300)
 ```
 
 With the ids in hand, we can now try to get the abstracts of the papers.
@@ -122,17 +129,21 @@ around `I()` (as you would do in a formula in R). For example, the text
 `"123,456"` is replaced with `"123%2C456"`. If you don't want that
 behavior, you would need to do the following `I("123,456")`.
 
-```{r get-abstracts, eval = FALSE}
+```{r get-abstracts, eval = T}
 publications <- GET(
-  url   = "BASELINE URL HERE",
+  url   = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
   query = list(
-    "PARAMETERS OF THE QUERY"
+    db = "pubmed",
+    id = paste(ids, collapse = ","),
+    retmax = 1000,
+    rettype = "abstract"
     )
 )
 
 # Turning the output into character vector
 publications <- httr::content(publications)
 publications_txt <- as.character(publications)
+#publications_txt[[1]]
 ```
 
 With this in hand, we can now analyze the data. This is also a good time
@@ -148,10 +159,10 @@ Using the function `stringr::str_extract_all()` applied on
 
 Write a regular expression that captures all such instances
 
-```{r univ-institute-regex, eval = FALSE}
-institution <- str_extract_all(
+```{r univ-institute-regex, eval = T}
+institution <- stringr::str_extract_all(
   publications_txt,
-  "[YOUR REGULAR EXPRESSION HERE]"
+  "University\\s+of\\s+[[:alpha:]]+ | [[:alpha:]]+\\s+Institute\\s+of\\s+[[:alpha:]]+"
   ) 
 institution <- unlist(institution)
 table(institution)
@@ -165,10 +176,10 @@ the form of
 
 And tabulate the results
 
-```{r school-department, eval = FALSE}
-schools_and_deps <- str_extract_all(
-  abstracts_txt,
-  "[YOUR REGULAR EXPRESSION HERE]"
+```{r school-department, eval = T}
+schools_and_deps <- stringr::str_extract_all(
+  publications_txt,
+  "School\\s+of\\s+[[:alpha:]]+ | Department\\s+of\\s+[[:alpha:]]+"
   )
 table(schools_and_deps)
 ```
@@ -185,7 +196,7 @@ to keep one element per id. This way, if a paper is missing the
 abstract, or something else, we will be able to properly match PUBMED
 IDS with their corresponding records.
 
-```{r one-string-per-response, eval = FALSE}
+```{r one-string-per-response, eval = T}
 pub_char_list <- xml2::xml_children(publications)
 pub_char_list <- sapply(pub_char_list, as.character)
 pub_char_list[[1]]
@@ -195,27 +206,36 @@ Now, extract the abstract and article title for each one of the elements
 of `pub_char_list`. You can either use `sapply()` as we just did, or
 simply take advantage of vectorization of `stringr::str_extract`
 
-```{r extracting-last-bit, eval = FALSE}
-abstracts <- str_extract(pub_char_list, "[YOUR REGULAR EXPRESSION]")
-abstracts <- str_remove_all(abstracts, "[CLEAN ALL THE HTML TAGS]")
-abstracts <- str_remove_all(abstracts, "[CLEAN ALL EXTRA WHITE SPACE AND NEW LINES]")
+```{r extracting-last-bit, eval = T}
+abstracts <- str_extract(pub_char_list, "<Abstract>(\\n|.)+</Abstract>")
+abstracts <- str_remove_all(abstracts, "</?[[:alnum:]]+>")
+abstracts <- str_replace_all(abstracts, "\\s+", " ")
+table(is.na(abstracts))
 ```
 
 How many of these don't have an abstract? Now, the title
 
-```{r process-titles, eval = FALSE}
-titles <- str_extract(pub_char_list, "[YOUR REGULAR EXPRESSION]")
-titles <- str_remove_all(titles, "[CLEAN ALL THE HTML TAGS]")
+```{r process-titles, eval = T}
+titles <- str_extract(pub_char_list, "<ArticleTitle>(\\n|.)+</ArticleTitle>")
+titles <- str_remove_all(titles, "</?[[:alnum:]]+>")
+titles <- str_replace_all(titles, "\\s+", " ")
+table(is.na(titles))
 ```
 
 Finally, put everything together into a single `data.frame` and use
 `knitr::kable` to print the results
 
-```{r build-db, eval = FALSE}
+```{r build-db, eval = T}
+
+library(kableExtra)
 database <- data.frame(
-  "[DATA TO CONCATENATE]"
+  PubMedID = ids,
+  Title = titles,
+  Abstract = abstracts
 )
-knitr::kable(database)
+knitr::kable(database) %>%
+  kable_styling("striped", full_width = F) %>% 
+ scroll_box(width = "500px", height = "200px")
 ```
 
 Done! Knit the document, commit, and push.
