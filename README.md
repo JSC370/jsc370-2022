@@ -39,8 +39,8 @@ https://utoronto.zoom.us/j/88388656730)
 |Labs|10|
 |Guest speaker reflections|5|
 |Homework (5)|50|
-|Midterm report|10|
-|Final project|25|
+|Midterm report|15|
+|Final project|20|
 
 
 ### Website reference:
