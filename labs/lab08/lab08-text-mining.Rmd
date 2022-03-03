@@ -1,6 +1,6 @@
 ---
 title: "Lab 08 - Text Mining"
-output: github_document
+output: html_document
 ---
 
 ```{r setup}
@@ -56,7 +56,7 @@ We can use `count()` from `dplyr` to figure out how many different catagories do
 
 ```{r}
 mt_samples %>%
-  count(___, sort = TRUE)
+  count(, sort = TRUE)
 ```
 
 ---
@@ -105,3 +105,6 @@ Ideas:
 - Interesting ngrams
 - See if certain words are used more in some specialties then others
 
+# Deliverables
+
+1. Questions 1-7 answered, pdf or html output uploaded to quercus
