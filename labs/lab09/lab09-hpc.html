@@ -183,12 +183,21 @@ library(doParallel)</code></pre>
 <div id="firstly-check-out-your-hardware" class="section level2">
 <h2>Firstly: check out your hardware</h2>
 <p>Open up task manager and look at your CPU, GPU</p>
-<p>Try these commands out (you may need to install them on your machine first) * <code>top</code> or <code>htop</code> (human-readable top) * <code>lshw -C display</code> * <code>nvidia-smi</code> (only applies to nvidia products)</p>
+<p>Try these commands out (you may need to install them on your machine first)</p>
+<p><code>- top</code> or <code>htop</code> (human-readable top)</p>
+<p><code>- lshw -C display</code></p>
+<p><code>- nvidia-smi</code> (only applies to nvidia products)</p>
 <p>Or, in R: <code>doParallel::detectCores()</code></p>
 </div>
 <div id="problem-1-think" class="section level2">
 <h2>Problem 1: Think</h2>
 <p>Give yourself a few minutes to think about what you learned about parallelization. List three examples of problems that you believe may be solved using parallel computing, and check for packages on the HPC CRAN task view that may be related to it.</p>
+<ul>
+<li><p>cross validation (in ML) <code>carat</code>, <code>mlr</code></p></li>
+<li><p>bootstrapping <code>boot</code></p></li>
+<li><p>MCMC <code>parallel</code></p></li>
+<li><p><code>foreach</code> / <code>doParallel</code></p></li>
+</ul>
 </div>
 <div id="problem-2-pre-parallelization" class="section level2">
 <h2>Problem 2: Pre-parallelization</h2>
@@ -207,12 +216,14 @@ library(doParallel)</code></pre>
 
 fun1alt &lt;- function(n = 100, k = 4, lambda = 4) {
   # YOUR CODE HERE
+  matrix(rpois(n * k, lambda = lambda), ncol = k)
 }
 
 # Benchmarking
 microbenchmark::microbenchmark(
   fun1(),
-  fun1alt()
+  fun1alt(),
+  unit = &quot;ms&quot;
 )</code></pre>
 <p>How much faster?</p>
 <ol start="2" style="list-style-type: decimal">
@@ -229,13 +240,15 @@ fun2 &lt;- function(x) {
 
 fun2alt &lt;- function(x) {
   # YOUR CODE HERE
+  x[cbind(max.col(t(x)), 1:ncol(x))]
 }
 
 # Benchmarking
-microbenchmark::microbenchmark(
-  fun2(),
-  fun2alt()
-)</code></pre>
+ans &lt;- microbenchmark::microbenchmark(
+  fun2(x),
+  fun2alt(x)
+)
+plot(ans)</code></pre>
 </div>
 <div id="problem-3-parallelize-everyhing" class="section level2">
 <h2>Problem 3: Parallelize everyhing</h2>
@@ -249,11 +262,14 @@ microbenchmark::microbenchmark(
   idx &lt;- matrix(sample.int(n, n*R, TRUE), nrow=n, ncol=R)
  
   # Making the cluster using `ncpus`
-  # STEP 1: GOES HERE
-  # STEP 2: GOES HERE
+  # step 1
+  cl &lt;- makePSOCKcluster(ncpus)
+  #step 2
+  clusterExport(cl, varlist = c(&quot;idx&quot;, &quot;dat&quot;, &quot;stat&quot;), envir = environment())
   
+  #clusterSetRNGStream(cl, 370)
   # STEP 3: THIS FUNCTION NEEDS TO BE REPLACED WITH parLapply
-  ans &lt;- lapply(seq_len(R), function(i) {
+  ans &lt;- parLapply(cl, seq_len(R), function(i) {
     stat(dat[idx[,i], , drop=FALSE])
   })
   
@@ -261,6 +277,7 @@ microbenchmark::microbenchmark(
   ans &lt;- do.call(rbind, ans)
   
   # STEP 4: GOES HERE
+  stopCluster(cl)
   
   ans
   
@@ -269,7 +286,9 @@ microbenchmark::microbenchmark(
 <li>Use the previous pseudocode, and make it work with parallel. Here is just an example for you to try:</li>
 </ol>
 <pre class="r"><code># Bootstrap of a linear regression model
-my_stat &lt;- function_for_lm 
+my_stat &lt;- function(d) {
+  return(coef(lm(d$y~d$x)))
+}
 
 # DATA SIM
 set.seed(1)
@@ -279,11 +298,56 @@ x &lt;- cbind(rnorm(n))
 y &lt;- x*5 + rnorm(n)
 
 # Check if we get something similar as lm
-ans0 &lt;- confint()
-ans1 &lt;- my_boot()</code></pre>
+ans0 &lt;- confint(lm(y~x))
+ans1 &lt;- my_boot(dat = data.frame(x=x, y=y), stat = my_stat,
+                R = R, ncpus = 2L)
+
+print(ans0)
+print ( t(apply(ans1, 2, quantile, c(0.025, .975) )))</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Check whether your version actually goes faster than the non-parallel version:</li>
 </ol>
+<pre class="{=2l))}"><code>{r benchmark-problem3}
+
+system.time(my_boot(dat = data.frame(x=x,y=y), my_stat, R=4000, ncpus=1L))
+system.time(my_boot(dat = data.frame(x=x,y=y), my_stat, R=4000, ncpus=2L))
+system.time(my_boot(dat = data.frame(x=x,y=y), my_stat, R=4000, ncpus=8L))
+
+</code></pre>
+</div>
+<div id="foreach-and-doparallel" class="section level2">
+<h2>Foreach and doParallel</h2>
+<pre class="r"><code>library(foreach)
+library(doParallel)
+
+
+
+fun3 &lt;- function(dat, stat, R){
+  
+  idx &lt;- matrix(sample.int(n, n*R, replace = T), nrow=n, ncol = R)
+  
+  foreach (i = 1:R, .combine = rbind) %do% {
+    stat(dat[idx[,i],,drop=F])
+  }
+  
+}
+
+
+fun3parallel &lt;- function(dat, stat, R){
+  
+  idx &lt;- matrix(sample.int(n, n*R, replace = T), nrow=n, ncol = R)
+  
+  foreach (i = 1:R, .combine = rbind) %dopar% {
+    stat(dat[idx[,i],,drop=F])
+  }
+  
+}
+
+detectCores()
+
+system.time(fun3(dat=data.frame(x=x,y=y), my_stat, R=4000))
+registerDoParallel(8)
+system.time(fun3parallel(dat=data.frame(x=x, y=y), my_stat, R=4000))</code></pre>
 </div>
 <div id="problem-4-compile-this-markdown-document-using-rscript" class="section level2">
 <h2>Problem 4: Compile this markdown document using Rscript</h2>

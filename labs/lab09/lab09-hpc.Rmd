@@ -2,6 +2,9 @@
 title: "Lab 9 - HPC"
 output: html_document
 link-citations: yes
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, echo=FALSE}
@@ -16,38 +19,51 @@ library(doParallel)
 
 # Learning goals
 
-In this lab, you are expected to learn/put in practice the following skills:
+In this lab, you are expected to learn/put in practice the following
+skills:
 
-- Evaluate whether a problem can be parallelized or not.
-- Practice with the parallel package.
-- Use Rscript to submit jobs
-- Practice your skills with Git.
+-   Evaluate whether a problem can be parallelized or not.
+-   Practice with the parallel package.
+-   Use Rscript to submit jobs
+-   Practice your skills with Git.
 
 ## Firstly: check out your hardware
 
 Open up task manager and look at your CPU, GPU
 
-Try these commands out (you may need to install them on your machine first)
-* `top` or `htop` (human-readable top)
-* `lshw -C display`
-* `nvidia-smi` (only applies to nvidia products)
+Try these commands out (you may need to install them on your machine
+first)
+
+`- top` or `htop` (human-readable top)
+
+`- lshw -C display`
+
+`- nvidia-smi` (only applies to nvidia products)
 
 Or, in R: `doParallel::detectCores()`
 
 ## Problem 1: Think
 
-Give yourself a few minutes to think about what you learned about parallelization. List three
-examples of problems that you believe may be solved using parallel computing,
-and check for packages on the HPC CRAN task view that may be related to it.
+Give yourself a few minutes to think about what you learned about
+parallelization. List three examples of problems that you believe may be
+solved using parallel computing, and check for packages on the HPC CRAN
+task view that may be related to it.
+
+-   cross validation (in ML) `carat`, `mlr`
+
+-   bootstrapping `boot`
+
+-   MCMC `parallel`
+
+-   `foreach` / `doParallel`
 
 ## Problem 2: Pre-parallelization
 
-The following functions can be written to be more efficient without using
-parallel:
+The following functions can be written to be more efficient without
+using parallel:
 
-1. This function generates a `n x k` dataset with all its entries having a Poisson distribution with mean `lambda`.
-
-
+1.  This function generates a `n x k` dataset with all its entries
+    having a Poisson distribution with mean `lambda`.
 
 ```{r p2-fun1}
 fun1 <- function(n = 100, k = 4, lambda = 4) {
@@ -61,12 +77,14 @@ fun1 <- function(n = 100, k = 4, lambda = 4) {
 
 fun1alt <- function(n = 100, k = 4, lambda = 4) {
   # YOUR CODE HERE
+  matrix(rpois(n * k, lambda = lambda), ncol = k)
 }
 
 # Benchmarking
 microbenchmark::microbenchmark(
   fun1(),
-  fun1alt()
+  fun1alt(),
+  unit = "ms"
 )
 ```
 
@@ -86,24 +104,28 @@ fun2 <- function(x) {
 
 fun2alt <- function(x) {
   # YOUR CODE HERE
+  x[cbind(max.col(t(x)), 1:ncol(x))]
 }
 
 # Benchmarking
-microbenchmark::microbenchmark(
-  fun2(),
-  fun2alt()
+ans <- microbenchmark::microbenchmark(
+  fun2(x),
+  fun2alt(x)
 )
+plot(ans)
 ```
 
 ## Problem 3: Parallelize everyhing
 
-We will now turn our attention to non-parametric 
+We will now turn our attention to non-parametric
 [bootstrapping](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)).
-Among its many uses, non-parametric bootstrapping allow us to obtain confidence
-intervals for parameter estimates without relying on parametric assumptions.
+Among its many uses, non-parametric bootstrapping allow us to obtain
+confidence intervals for parameter estimates without relying on
+parametric assumptions.
 
-The main assumption is that we can approximate many experiments by resampling
-observations from our original dataset, which reflects the population. 
+The main assumption is that we can approximate many experiments by
+resampling observations from our original dataset, which reflects the
+population.
 
 This function implements the non-parametric bootstrap:
 
@@ -115,11 +137,14 @@ my_boot <- function(dat, stat, R, ncpus = 1L) {
   idx <- matrix(sample.int(n, n*R, TRUE), nrow=n, ncol=R)
  
   # Making the cluster using `ncpus`
-  # STEP 1: GOES HERE
-  # STEP 2: GOES HERE
+  # step 1
+  cl <- makePSOCKcluster(ncpus)
+  #step 2
+  clusterExport(cl, varlist = c("idx", "dat", "stat"), envir = environment())
   
+  #clusterSetRNGStream(cl, 370)
   # STEP 3: THIS FUNCTION NEEDS TO BE REPLACED WITH parLapply
-  ans <- lapply(seq_len(R), function(i) {
+  ans <- parLapply(cl, seq_len(R), function(i) {
     stat(dat[idx[,i], , drop=FALSE])
   })
   
@@ -127,18 +152,21 @@ my_boot <- function(dat, stat, R, ncpus = 1L) {
   ans <- do.call(rbind, ans)
   
   # STEP 4: GOES HERE
+  stopCluster(cl)
   
   ans
   
 }
 ```
 
-1. Use the previous pseudocode, and make it work with parallel. Here is just an example
-for you to try:
+1.  Use the previous pseudocode, and make it work with parallel. Here is
+    just an example for you to try:
 
 ```{r p3-test-boot}
 # Bootstrap of a linear regression model
-my_stat <- function_for_lm 
+my_stat <- function(d) {
+  return(coef(lm(d$y~d$x)))
+}
 
 # DATA SIM
 set.seed(1)
@@ -148,29 +176,73 @@ x <- cbind(rnorm(n))
 y <- x*5 + rnorm(n)
 
 # Check if we get something similar as lm
-ans0 <- confint()
-ans1 <- my_boot()
+ans0 <- confint(lm(y~x))
+ans1 <- my_boot(dat = data.frame(x=x, y=y), stat = my_stat,
+                R = R, ncpus = 2L)
+
+print(ans0)
+print ( t(apply(ans1, 2, quantile, c(0.025, .975) )))
+```
+
+2.  Check whether your version actually goes faster than the
+    non-parallel version:
+
+```{=2L))}
+{r benchmark-problem3}
+
+system.time(my_boot(dat = data.frame(x=x,y=y), my_stat, R=4000, ncpus=1L))
+system.time(my_boot(dat = data.frame(x=x,y=y), my_stat, R=4000, ncpus=2L))
+system.time(my_boot(dat = data.frame(x=x,y=y), my_stat, R=4000, ncpus=8L))
 
 
 ```
 
-2. Check whether your version actually goes faster than the non-parallel version:
+## Foreach and doParallel
+
+```{r}
+
+library(foreach)
+library(doParallel)
 
 
-```{r benchmark-problem3}
+
+fun3 <- function(dat, stat, R){
+  
+  idx <- matrix(sample.int(n, n*R, replace = T), nrow=n, ncol = R)
+  
+  foreach (i = 1:R, .combine = rbind) %do% {
+    stat(dat[idx[,i],,drop=F])
+  }
+  
+}
+
+
+fun3parallel <- function(dat, stat, R){
+  
+  idx <- matrix(sample.int(n, n*R, replace = T), nrow=n, ncol = R)
+  
+  foreach (i = 1:R, .combine = rbind) %dopar% {
+    stat(dat[idx[,i],,drop=F])
+  }
+  
+}
+
+detectCores()
+
+system.time(fun3(dat=data.frame(x=x,y=y), my_stat, R=4000))
+registerDoParallel(8)
+system.time(fun3parallel(dat=data.frame(x=x, y=y), my_stat, R=4000))
 
 ```
 
 ## Problem 4: Compile this markdown document using Rscript
 
-Once you have saved this Rmd file, try running the following command
-in your terminal:
+Once you have saved this Rmd file, try running the following command in
+your terminal:
 
-```bash
-Rscript --vanilla -e 'rmarkdown::render("[full-path-to-your-Rmd-file.Rmd]")' &
+``` {.bash}
+Rscript --vanilla -e 'rmarkdown::render("[full-path-to-your-Rmd-file.Rmd]")'
 ```
 
-Where `[full-path-to-your-Rmd-file.Rmd]` should be replace with the full path to
-your Rmd file... :).
-
-
+Where `[full-path-to-your-Rmd-file.Rmd]` should be replace with the full
+path to your Rmd file... :).
