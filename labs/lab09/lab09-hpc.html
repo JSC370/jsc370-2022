@@ -168,6 +168,9 @@ pre code {
 </div>
 
 
+<pre class="r"><code>library(parallel)
+library(foreach)
+library(doParallel)</code></pre>
 <div id="learning-goals" class="section level1">
 <h1>Learning goals</h1>
 <p>In this lab, you are expected to learn/put in practice the following skills:</p>
@@ -181,7 +184,7 @@ pre code {
 <h2>Firstly: check out your hardware</h2>
 <p>Open up task manager and look at your CPU, GPU</p>
 <p>Try these commands out (you may need to install them on your machine first) * <code>top</code> or <code>htop</code> (human-readable top) * <code>lshw -C display</code> * <code>nvidia-smi</code> (only applies to nvidia products)</p>
-<p>Or, in R: <code>detectCores()</code></p>
+<p>Or, in R: <code>doParallel::detectCores()</code></p>
 </div>
 <div id="problem-1-think" class="section level2">
 <h2>Problem 1: Think</h2>

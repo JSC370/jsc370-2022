@@ -8,6 +8,11 @@ link-citations: yes
 knitr::opts_chunk$set(eval = F)
 ```
 
+```{r, include=T}
+library(parallel)
+library(foreach)
+library(doParallel)
+```
 
 # Learning goals
 
@@ -27,7 +32,7 @@ Try these commands out (you may need to install them on your machine first)
 * `lshw -C display`
 * `nvidia-smi` (only applies to nvidia products)
 
-Or, in R: `detectCores()`
+Or, in R: `doParallel::detectCores()`
 
 ## Problem 1: Think
 
@@ -41,6 +46,8 @@ The following functions can be written to be more efficient without using
 parallel:
 
 1. This function generates a `n x k` dataset with all its entries having a Poisson distribution with mean `lambda`.
+
+
 
 ```{r p2-fun1}
 fun1 <- function(n = 100, k = 4, lambda = 4) {
