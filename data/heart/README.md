@@ -12,7 +12,7 @@ Variables:
 - RestECG (resting electrocardiogram)
 - MaxHR (maximum heart rate)
 - ExAng
-- Slipe
+- Slope
 - Ca
 - Thal (character, Thallium stress test)
 - AHD (heart disease based on angiogram)
