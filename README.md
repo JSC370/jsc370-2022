@@ -30,7 +30,8 @@ https://utoronto.zoom.us/j/88388656730)
 |  **Week 10** <br> March 15 guest speaker/[lecture](https://github.com/JSC370/jsc370-2022/blob/main/10-ml-boosting.pdf) <br> March 17 [lab](https://github.com/JSC370/jsc370-2022/blob/main/labs/lab10/lab10-trees-rf-gbm.html) | Ellen Stephenson (U of T)  <br> ML 2 (elastic net, xgboost)   | **[HW3](https://github.com/JSC370/jsc370-2022/blob/main/homework/hw3/hw3.pdf) Lab10, Reflection** |
 |  **Week 11** <br> March 22 guest speaker/[lecture](https://github.com/JSC370/jsc370-2022/blob/main/11-interactive-viz1.pdf) <br> March 24 (lab) | [Amy Braverman](https://en.wikipedia.org/wiki/Amy_Braverman) (NASA) <br> Interactive visualization and effective data communication I  |  **Lab11, Reflection**  |
 |  **Week 12** <br> March 29 (guest speaker/lecture) <br> March 31 (lab) | Sofia Ruiz (National University of Rosario) and Yunyi Shen (U Wisconsin-Madison)  <br> Interactive visualization and effective data communication II  | **[HW4](https://github.com/JSC370/jsc370-2022/blob/main/homework/hw4/hw4.pdf), Lab12, Reflection**  |
-|  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | [Radu Craiu](https://utstat.toronto.edu/craiu/) (U of T) <br> Final Presentations  |  **HW5, Reflection, Final Project** |
+|  **Week 13** <br> April 4/5 (guest speaker/lecture) <br> April 6 (lab) | [Radu Craiu](https://utstat.toronto.edu/craiu/) (U of T) <br> Final Porject Workshop |  **[HW5](https://github.com/JSC370/jsc370-2022/blob/main/homework/hw5/hw5.pdf), Reflection** |
+|  **Week 15** <br> April 21 (final exam period) | |  **[Final Project]()** |
 
 ### Grading Breakdown
 
